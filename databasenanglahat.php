@@ -14,8 +14,7 @@ session_start();
 <body>
 
   <header>
-    <h1>Car-Air Conditioning SHOP
-    Management System</h1>
+    <h1>Car Air Conditioning Shop Management System</h1>
   </header>
 
   <main class="dashboard">
@@ -38,6 +37,16 @@ session_start();
         <div class="card-buttons">
           <a href="insert_inventorypart.php" class="btn add">➕ Add Inventory Part</a>
           <a href="inventorypart.php" class="btn view">👁️ View Inventory Parts</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+        <h3>Vehicles </h3>
+        <p>Customer vehicles and details.</p>
+        <div class="card-buttons">
+          <a href="insert_vehicle.php" class="btn add">➕ Add Vehicle</a>
+          <a href="vehicle.php" class="btn view">👁️ View Vehicles</a>
         </div>
       </div>
     </div>
@@ -90,7 +99,7 @@ main.dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: 50px;
   text-align: center;
 }
 
@@ -113,7 +122,7 @@ main p {
   justify-content: center;
   gap: 30px;
   width: 100%;
-  max-width: 900px;
+  min-width: 1000px;
 }
 
 /* --- CARD --- */
@@ -121,8 +130,8 @@ main p {
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 30px;
-  width: 350px;
+  padding: 50px;
+  width: 500px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -141,6 +150,14 @@ main p {
   margin-bottom: 20px;
   font-size: 14px;
 }
+.cards {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 50px;
+  width: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 /* --- BUTTONS --- */
 .card-buttons {
@@ -151,7 +168,7 @@ main p {
 .btn {
   display: inline-block;
   text-decoration: none;
-  padding: 10px 18px;
+  padding: 11px 19px;
   border-radius: 25px;
   font-size: 14px;
   font-weight: 600;

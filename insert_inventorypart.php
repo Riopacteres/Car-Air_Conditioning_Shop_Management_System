@@ -1,23 +1,19 @@
 <?php include("database.php"); ?>
 <div class="form-wrapper">
-    <h2>Inventorypart Details</h2>
+    <h2>Inventory art Details</h2>
     
       <form method="post" action="">
         <div class="input-field">
-    <label>Part Name</label>
-       <input type="text" name="PartName" placeholder="Enter the part name" required><br><br>
+    <label>PartName:</label> <input type="text" name="PartName" placeholder="Enter the part name" required><br><br>
     </div>
       <div class="input-field">
-    <label>Description</label>
-     <input type="text" name="Description" placeholder="Provide a brief description"required><br><br>
+    <label>Description:</label> <input type="text" name="Description" placeholder="Provide a brief description"required><br><br>
     </div>
       <div class="input-field">
-    <label>Quantity In Stock</label>
-    <input type="number" name="QuantityInStock" placeholder="Enter stock quantity"required><br><br>
+    <label>Quantity In Stock:</label> <input type="number" name="QuantityInStock" placeholder="Enter stock quantity"required><br><br>
     </div>
       <div class="input-field">
-    <label>Supplier Name</label>
-    <input type="text" name="SupplierName" placeholder="Enter the supplier name"required><br><br>
+    <label>Supplier Name:</label> <input type="text" name="SupplierName" placeholder="Enter the supplier name"required><br><br>
     </div>
       <div class="input-field">
     <input type="submit" name="submit" value="Save">
@@ -34,7 +30,7 @@ if(isset($_POST['submit'])){
             VALUES ('$PartName', '$Description', '$QuantityInStock', '$SupplierName')";
 
     if(mysqli_query($conn, $sql)){
-        $msg = "✅ Inventorypart added successfully!";
+        $msg = "✅ Inventory part added successfully!";
         header("Location:inventorypart.php?status=success");
         exit();
     } else {
@@ -49,119 +45,172 @@ if(isset($msg)){
 }
 ?>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
+/* 1. CSS VARIABLES - Change colors easily here */
+:root {
+    --primary-color: #0a43b4;
+    --primary-hover: #edeff2;
+    --primary-light: #e5e9f5;
+    --bg-gradient: linear-gradient(135deg, #fefefe);
+    --text-dark: #333333;
+    --text-label: #555555;
+    --border-color: #d0d6e2;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.15); /* Softer, modern shadow */
+}
+
+* {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
-  }
-  
-  body {
-    background-color: rgb(242, 244, 247);
+}
+
+body {
+    margin: 0;
+    min-height: 100px;
+    background: var(--bg-gradient);
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-weight: 1000;
-  font-size: 18px;
+    padding: 20px; /* Prevents card from touching edges on mobile */
+}
 
-  }
+/* Card */
+.form-wrapper {
+    background: var(--white);
+    width: 60%;
+    min-width: 300px;
+    padding: 40px;
+    border-radius: 20px; /* Slightly more rounded */
+    box-shadow: var(--shadow);
+    /* Animation: Slides up slightly when page loads */
+    animation: slideUp 0.5s ease-out;
+}
 
-  .form-wrapper {
-   background-color: #eeeef0ff;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  h2 {
-    font-size: 22px;
-    color: #0c46c4ff;
+/* Title */
+.form-wrapper h2 {
+    text-align: center;
+    color: var(--primary-color);
     margin-bottom: 30px;
-    border-bottom: 3px solid #1196d3ff;
-    padding-bottom: 50px;
-    letter-spacing: 0.5px;
-  }
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
 
-  .input-field {
-   display: flex;
-    align-items: center;
-    background: #e0e4ebff;
-    padding: 10px 15px;
-    border-radius: 25px;
+/* Input Group */
+.input-field {
+    margin-bottom: 20px;
+    position: relative;
 }
 
 .input-field label {
-  display: flex;
-    align-items: center;
-    background: #f8fafcff;
-    padding: 10px 15px;
-    border-radius: 25px;
-   
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text-label);
+    font-weight: 500;
 }
 
 .input-field input {
-  background: white;
-    border: none;
-    color: #2051bbff;
+    width: 100%;
+    padding: 14px 16px; /* Larger touch target */
+    border-radius: 10px;
+    border: 1.5px solid var(--border-color); /* Slightly thicker border */
+    font-size: 15px;
+    color: var(--text-dark);
     outline: none;
-    margin-left: 8px;   
-    width: 80%;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 25px;
-    background: #f2f2f8ff;
-   
-} 
+    transition: all 0.3s ease;
+    background: #f8f9fa; /* Slight grey background looks more modern */
+}
+
+.input-field input:focus {
+    border-color: var(--primary-color);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(10, 67, 180, 0.1); /* Soft glow ring */
+}
+
+/* Submit Button */
 input[type="submit"] {
-    width: 10%;
-    background-color: #0a43b4ff;
-    color: white;
-    padding: 12px;
-    font-size: 15px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 16px;
+    background: var(--primary-color);
+    color: var(--white);
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s ease;
-  }
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(10, 67, 180, 0.2);
+}
 
-  .input-field.success input {
-    border-color: #4CAF50;
-  }
-  .input-field.success small {
-    color: #4CAF50;
-  }
+input[type="submit"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px); /* Moves up slightly */
+    box-shadow: 0 6px 12px rgba(10, 67, 180, 0.3);
+}
 
-  .input-field.error input {
-    border-color: #f44336;
-  }
-  .input-field.error small {
-    color: #f44336;
-  }
+input[type="submit"]:active {
+    transform: translateY(0); /* Moves back down on click */
+}
 
-  .input-field input:disabled {
-    background-color: #f1f1f1;
-    border-color: #ddd;
-    cursor: not-allowed;
-  }
-  button {
-    width: 30%;
-    background-color: #3f51b5;
-    color: white;
-    padding: 12px;
-    font-size: 15px;
+/* Back Button */
+.back-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-light);
+    color: var(--primary-color);
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #dce3f5;
+    transform: translateY(-2px);
+}
+
+ label{
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    text-align: left;
   }
 
-  button:hover {
-    background-color: #2e3c9a;
-  }
+/* Animation Keyframes */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .form-wrapper {
+        padding: 25px;
+    }
+    
+    .form-wrapper h2 {
+        font-size: 22px;
+    }
+}
 </style>
+<br>
+<div style="text-align: center; margin-top: 20px;">
+    <button 
+        onclick="window.history.back()" 
+        style="padding: 10px 20px; 
+               background-color: #0a43b4ff; 
+               color: white; 
+               border: none; 
+               border-radius: 5px; 
+               cursor: pointer;">
+        ⬅ Go Back
+    </button>
+</div>

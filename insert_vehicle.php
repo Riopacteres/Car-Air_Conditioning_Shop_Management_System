@@ -1,19 +1,13 @@
 <?php include("database.php"); ?>
 
 <div class="form-wrapper">
-    <h2>Customer Info</h2>
+    <h2>Vehicles Info</h2>
     <form method="post" action="">
       <div class="input-field">
-    <label>Full Name:</label> <input type="text" name="FullName" id="FullName" placeholder="Enter your full name" required>
+    <label>Model:</label> <input type="text" name="Model" id="Model" placeholder="Enter your Model Car" required>
 </div>
       <div class="input-field">
-    <label>Phone Number:</label> <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="Enter your phone number" required>
-</div>
-      <div class="input-field">
-    <label>Email:</label> <input type="text" name="Email" id="Email" placeholder="Enter your email" required>
-    </div>
-      <div class="input-field">
-    <label>Address:</label> <input type="text" name="Address" id="Address" placeholder="Enter your address" required>
+    <label>Plate Number:</label> <input type="string" name="PlateNumber" id="PlateNumber" placeholder="Enter your Plate number of your Car" required>
 </div>
       <div class="input-field">
     <input type="submit" name="submit" value="Save">
@@ -21,13 +15,12 @@
 <?php
 
 if(isset($_POST['submit'])){
-    $FullName = $_POST['FullName'];
-    $PhoneNumber  = $_POST['PhoneNumber'];
-    $Email  = $_POST['Email'];
-    $Address  = $_POST['Address'];
+    $Model = $_POST['Model'];
+    $PlateNumber  = $_POST['PlateNumber'];
+   
 
-    $sql = "INSERT INTO customer (FullName, PhoneNumber, Email, Address)
-            VALUES ('$FullName', '$PhoneNumber', '$Email', '$Address')";
+    $sql = "INSERT INTO vehicle (Model, PlateNumber)
+            VALUES ('$Model', '$PlateNumber')";
             
 
     if(mysqli_query($conn, $sql)){
