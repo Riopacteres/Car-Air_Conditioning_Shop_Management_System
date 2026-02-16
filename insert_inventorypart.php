@@ -1,10 +1,10 @@
 <?php include("database.php"); ?>
 <div class="form-wrapper">
-    <h2>Inventory art Details</h2>
+    <h2>Inventory Part Details</h2>
     
       <form method="post" action="">
         <div class="input-field">
-    <label>PartName:</label> <input type="text" name="PartName" placeholder="Enter the part name" required><br><br>
+    <label>Part Name:</label> <input type="text" name="PartName" placeholder="Enter the part name" required><br><br>
     </div>
       <div class="input-field">
     <label>Description:</label> <input type="text" name="Description" placeholder="Provide a brief description"required><br><br>

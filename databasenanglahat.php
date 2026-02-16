@@ -51,11 +51,21 @@ session_start();
       </div>
     </div>
 
+    <div class="card">
+        <h3>Service Requests </h3>
+        <p>Service Requests and details.</p>
+        <div class="card-buttons">
+          <a href="insert_servicerequests.php" class="btn add">➕ Add servicerequests</a>
+          <a href="servicerequests.php" class="btn view">👁️ View servicerequests</a>
+        </div>
+      </div>
+    </div>
+
     <a href="logout.php" class="logout-btn">Log Out</a>
   </main>
 
   <footer>
-    <p>&copy; <?php echo date("Y"); ?> Inventory Management System</p>
+    <p>&copy; <?php echo date("Y"); ?> Car Air Conditioning Shop Management System</p>
   </footer>
 </body>
 </html>

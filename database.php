@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database_name = "pacteres_bucio_gerona";
+$database_name = "pacteres_bucio_gerona_db";
 
 $conn = mysqli_connect($servername, $username, $password, $database_name);
 
@@ -23,7 +23,7 @@ echo "
     }
     table {
         border-collapse: collapse;
-        width: 60%;
+        width: 80%;
         margin-bottom: 30px;
         box-shadow: 0 2px 8px rgba(14, 3, 3, 0.1);
         margin-left: auto;

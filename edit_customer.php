@@ -1,9 +1,9 @@
 <?php include("database.php"); 
 
-$FullName = "";
-$PhoneNumber  = "";
-$Email  = "";
-$Address  = "";
+    $FullName = "";
+    $PhoneNumber  = "";
+    $Email  = "";
+    $Address  = ;
 
 $errorMessage = "";
 $successMessage = "";
@@ -33,22 +33,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $Address  = $_POST['Address'];
 }
 
-// ✅ UPDATE customer
+// ✅ UPDATE veterinarian
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $FullName = $_POST['FullName'];
     $PhoneNumber  = $_POST['PhoneNumber'];
     $Email  = $_POST['Email'];
     $Address  = $_POST['Address'];
 
-    if (empty($FullName) || empty($PhoneNumber) || empty($Email) || empty($Address) ) {
+    if (empty($FullName) || empty($PhoneNumber) || empty($email) || empty($phonenumber) || empty($licensenumber)) {
         $errorMessage = "All fields are required";
     } else {
-        $sql = "UPDATE customer SET
-                FullName='$FullName',
-                PhoneNumber='$PhoneNumber',
-                Email='$Email',
-                Address='$Address',
-                WHERE Customer_ID=$Customer_ID";
+        $sql = "UPDATE veterinarian SET
+                first_name='$firstname',
+                last_name='$lastname',
+                email='$email',
+                phone_number='$phonenumber',
+                license_number='$licensenumber'
+                WHERE vet_id=$vet_id";
 
         if ($connection->query($sql)) {
             header("location: edit_veterinarian.php");
@@ -77,24 +78,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <form method="post">
         <div class="mb-3">
-            <label>Full Name</label>
-            <input type="text" class="form-control" name="Full_Name" value="<?= $FullName ?>" required>
+            <label>First Name</label>
+            <input type="text" class="form-control" name="first_name" value="<?= $firstname ?>" required>
         </div>
 
         <div class="mb-3">
-            <label>Phone Number</label>
-            <input type="number" class="form-control" name="Phone_Number" value="<?= $PhoneNumber ?>" required>
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="last_name" value="<?= $lastname ?>" required>
         </div>
 
         <div class="mb-3">
             <label>Email</label>
-            <input type="email" class="form-control" name="Email" value="<?= $Email ?>" required>
+            <input type="email" class="form-control" name="email" value="<?= $email ?>" required>
         </div>
 
         <div class="mb-3">
-            <label>Address</label>
-            <input type="text" class="form-control" name="Address" value="<?= $Address ?>" required>
+            <label>Phone Number</label>
+            <input type="text" class="form-control" name="phone_number" value="<?= $phonenumber ?>" required>
         </div>
+
+        <div class="mb-3">
+            <label>License Number</label>
+            <input type="text" class="form-control" name="license_number" value="<?= $licensenumber ?>" required>
+        </div>
+
         <button type="submit" class="btn btn-primary">Update</button>
         <a href="Edit_Delete.php" class="btn btn-outline-secondary">Cancel</a>
     </form>
