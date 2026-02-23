@@ -23,7 +23,7 @@ echo "
     }
     table {
         border-collapse: collapse;
-        width: 80%;
+        width: 60%;
         margin-bottom: 30px;
         box-shadow: 0 2px 8px rgba(14, 3, 3, 0.1);
         margin-left: auto;

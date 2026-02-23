@@ -3,7 +3,7 @@
     $FullName = "";
     $PhoneNumber  = "";
     $Email  = "";
-    $Address  = ;
+    $Address  = "";
 
 $errorMessage = "";
 $successMessage = "";
